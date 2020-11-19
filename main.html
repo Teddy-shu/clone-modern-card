@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="fontawesome-free-5.14.0-web/css/all.css"
+  </head>
+  <body>
+    <div class="header">
+      <div class="nav-iten" data-show="0">
+        <a href="#">home</a>
+        <a href="#">local</a>
+        <a href="#">golbal</a>
+        <a href="#">economic</a>
+        <a href="#">science</a>
+      </div>
+      <div class="nav-btn">
+        <svg enable-background="new 0 0 15 26"
+          height="26px" id="Layer_1" version="1.1"
+          viewBox="0 0 15 26" width="15px" xml:space="preserve">
+          <polygon fill="#231F20"
+          points="12.885,0.58 14.969,2.664 4.133,13.5 14.969,24.336 12.885,26.42 2.049,15.584 -0.035,13.5 "/>
+        </svg>
+      </div>
+    </div>
+
+
+
+    <div class="content">
+      <div class="card">
+        <div class="main-card">
+        </div>
+        <div class="number-card">
+          <span>1</span>
+        </div>
+        <h3 class="title">Minecraft</h3>
+        <div class="detail">
+          <div class="detail-box">
+            <p>137.1K</p>
+            <p>watching</p>
+          </div>
+          <div class="detail-box">
+            <p>1,337</p>
+            <p>streams</p>
+          </div>
+          <button type="button" name="button" class="more-btn"><span>see more streamer</span></button>
+        </div>
+          <div class="streamer-card">
+           <div class="viewer-count">
+             <span><i class="fas fa-user-alt"></i></span>
+             <p>158.3k</p>
+            </div>
+            <div class="streamer-list">
+              <div class="streamer">
+                <p>Sasaki Kotoko</p>
+                <p>4,600</p>
+              </div>
+              <div class="streamer">
+                <p>Susuki Ayane</p>
+                <p>4,600</p>
+              </div>
+              <div class="streamer">
+                <p>Ito junna</p>
+                <p>4,600</p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      let navBar = document.querySelector(".nav-iten");
+      let rightBtn = document.querySelector(".nav-btn");
+      let rightSVG = document.querySelector(".nav-btn svg");
+      let navBar_childern = document.querySelectorAll(".nav-iten a");
+
+      rightBtn.addEventListener("click", () => {
+        if(navBar.getAttribute('data-show') === "0") {
+          navBar.setAttribute('data-show', "1");
+          rightSVG.style = "transform: rotate(180deg)";
+          for(var i = 0 ; i < navBar_childern.length; i++) {
+            navBar_childern[i].style = "transform: translateX(50vw)";
+            navBar_childern[i].style.animation = "show_nav 0.8s " + i*0.2 + "s forwards";
+          }
+        } else {
+          //let navBar_childern = document.querySelectorAll(".nav-iten a");
+          rightSVG.style = "transform: rotate(0deg)";
+          for(var i = 0 ; i < navBar_childern.length; i++) {
+            navBar_childern[i].style = "transform: translateX(0)";
+            navBar_childern[i].style.animation = "hide_nav 0.8s " + (navBar_childern.length - i)*0.2 + "s forwards";
+          }
+          navBar.setAttribute('data-show', "0");
+        }
+      });
+    </script>
+  </body>
+</html>
